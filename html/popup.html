@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      div {
+        overflow: hidden;
+        margin: auto auto auto auto;
+        resize: none;
+        display: block;
+        direction: rtl;
+        position: relative;
+        width: 780px;
+        height: auto;
+      }
+      img {
+        overflow: hidden;
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0 0 0 0;
+      }
+      /* these styles are for the demo, but are not required for the plugin */
+      .zoom {
+          display:inline-block;
+          position: relative;
+      }
+      /* magnifying glass icon */
+      .zoom:after {
+          content: '';
+          display: block;
+          width: 33px;
+          height: 33px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          background:url(../3p/zoom-master/icon.png);
+      }
+      .zoom img {
+          display: block;
+      }
+      .zoom img::selection { background-color: transparent; }
+    </style>
+	<script src='../3p/zoom-master/jquery.min.js'></script>
+    <script src='../3p/zoom-master/jquery.zoom.js'></script>
+	<script src='../js/zoom.js'></script>
+  </head>
+  <body>
+    <span class='zoom' id='z0'>
+      <div>
+        <img src='../images/ppa-1-8.png'/>
+      </div>
+    </span>
+  </body>
+</html>
