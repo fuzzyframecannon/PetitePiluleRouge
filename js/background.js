@@ -57,7 +57,7 @@ chrome.contextMenus.create({
       title: "About",
       contexts: ["browser_action"],
       onclick: function() {
-        alert('www.monde-diplomatique.fr\nwww.acrimed.org');
+        alert('https://github.com/fuzzyframecannon/PetitePiluleRouge\nwww.monde-diplomatique.fr\nwww.acrimed.org');
       }
 });
 chrome.contextMenus.create({
