@@ -23,7 +23,7 @@
     "Paris Match": ["Arnaud Lagardere", "Quatar Investment Authority"],
     "(JDD|Journal du Dimanche)": ["Arnaud Lagardere", "Quatar Investment Authority"],
     "Marianne": ["Yves de Chaisemartin"],
-    "[Ll]a Dépêche": ["Famille Baylet"],
+    "[Ll]a ?[Dd][ée]p[eê]che(?:\\.fr)?": ["Famille Baylet"],
     "Ouest-France": ["Famille Hutin"],
     "[Ll]a Voix du Nord": ["Famille Hurbain", "Credit Agricole"],
     "Télégramme": ["Edouard Coudurier"],
