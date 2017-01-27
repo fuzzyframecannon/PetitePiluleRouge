@@ -72,15 +72,21 @@ function ReplaceAll(config)
     return;
 }
 
-window.addEventListener("load", function load(event){
-    window.removeEventListener("load", load, false); //remove listener, no longer needed
+window.addEventListener('load', function load(event){
+    window.removeEventListener('load', load, false); //remove listener, no longer needed
     GetConfigAndRun(ReplaceAll);
 }, false);
 
 var timeout = null;
-document.addEventListener("DOMSubtreeModified", function() {
+document.addEventListener('DOMSubtreeModified', function() {
     if(timeout) {
         clearTimeout(timeout);
     }
     timeout = setTimeout(function(){GetConfigAndRun(ReplaceAll);}, 500);
 }, false);
+
+chrome.storage.onChanged.addListener(function(changes, areaName){
+    if(areaName === 'sync') {
+        config = changes['config'].newValue;
+    }
+});
