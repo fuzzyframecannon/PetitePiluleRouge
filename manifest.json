@@ -1,8 +1,9 @@
 {
 "manifest_version": 2,
     "name": "Petite Pilule Rouge",
+    "short_name": "ppr",
     "description": "Basée sur le travail du Monde Diplomatique et d'Acrimed, indique les principaux propriétaires du média référencé.",
-    "version": "1.0",
+    "version": "1.1",
     "icons": {
         "128":"images/red_pill.png"
     },
