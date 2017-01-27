@@ -1,5 +1,5 @@
 {
-    "(?!^)Monde(?! [Dd]iplo)(?:\\.fr)?": ["Xavier Niel", "Pierre Bergé", "Matthieu Pigasse"],
+    "([Ll]e ?|[Dd]u )Monde(?! [Dd]iplo)(?:\\.fr)?": ["Xavier Niel", "Pierre Bergé", "Matthieu Pigasse"],
     "Huffington Post": ["Xavier Niel", "Pierre Bergé", "Matthieu Pigasse"],
     "Courrier International": ["Xavier Niel", "Pierre Bergé", "Matthieu Pigasse"],
     "([Ll]['’]Obs|Nouvel Observateur)": ["Xavier Niel", "Pierre Bergé", "Matthieu Pigasse"],
@@ -58,7 +58,7 @@
     "Boursorama(?:\\.com)?": ["Société Générale"],
     "(RFI|Radio France Internationale)": ["République française"],
     "France ?[Ii]nter": ["République française"],
-    "[Ff]rance(?:tv)?(?:info| Info)": ["République française"],
+    "[Ff]rance(?:tv)?(?:info| Info)(?:\\.fr)?": ["République française"],
     "France Bleu": ["République française"],
     "France ?24": ["République française"],
     "France Culture": ["République française"],
