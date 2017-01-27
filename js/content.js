@@ -10,18 +10,18 @@ function GetConfigAndRun(callback)
             if (!chrome.runtime.error) {
                 if (data) {
                     config = data['config'];
-                    return callback(config);
-                    }
-                } else {
-                    alert('LMDCHROMIUM: Failed to load config');
+                    callback(config);
                 }
+            }
+            else {
+                alert('LMDCHROMIUM: Failed to load config');
+            }
         });
     }
     else {
         // Already got it
         callback(config);
     }
-
     return;
 }
 
