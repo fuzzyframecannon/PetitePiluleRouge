@@ -22,7 +22,7 @@
     "RTL(?:\\.(?:FR|fr))?": ["Famille Mohn"],
     "Europe1": ["Arnaud Lagardère", "Quatar Investment Authority"],
     "Paris Match": ["Arnaud Lagardère", "Quatar Investment Authority"],
-    "(JDD|Journal du Dimanche)(?:\\.fr)?": ["Arnaud Lagardère", "Quatar Investment Authority"],
+    "([Ll]e ?|[Dd]u |[Aa]u )(JDD|Journal du Dimanche)(?:\\.fr)?": ["Arnaud Lagardère", "Quatar Investment Authority"],
     "Marianne": ["Yves de Chaisemartin"],
     "[Ll]a ?[Dd][ée]p[eê]che(?:\\.fr)?": ["Famille Baylet"],
     "Ouest-France": ["Famille Hutin"],
