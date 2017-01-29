@@ -13,8 +13,7 @@
     },
     "permissions": [
         "storage",
-        "contextMenus",
-        "https://raw.githubusercontent.com/"
+        "contextMenus"
     ],
     "background": {
         "scripts": ["js/config.js", "js/background.js"]
@@ -27,7 +26,7 @@
             "js": [
                 "js/content.js"
             ],
-            "run_at": "document_end"
+            "run_at": "document_start"
         }
     ]
 }

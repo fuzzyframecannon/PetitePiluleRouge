@@ -48,33 +48,33 @@ function replaceText(text, config)
 
 function ReplaceAll(config)
 {
-    // Process all elements
-    var elements = document.getElementsByTagName('*');
-    for (var i=0; i<elements.length; i++) {
-        var element = elements[i];
-        for (var j=0; j<element.childNodes.length; j++) {
-            var node = element.childNodes[j];
-            // Only perform substitution if the node has not been processed already
-            if (node.nodeType===Node.TEXT_NODE &&
-            textNodes.find(n => node.isSameNode(n))===undefined) {
-                var text = node.nodeValue;
-                var replacedText = replaceText(text, config);
-                if (replacedText !== text) {
-                    // Perform the subsitution
-                    newNode = document.createTextNode(replacedText);
-                    element.replaceChild(newNode, node);
-                    // Add modified node to list
-                    textNodes.push(newNode);
-                }
+    var node;
+    var walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+    );
+    // Process all text nodes
+    while(node = walker.nextNode()) {
+        // Only perform substitutions if the node has not been processed already
+        if(textNodes.find(n => node.isSameNode(n))===undefined) {
+            var text = node.nodeValue;
+            var replacedText = replaceText(text, config);
+            if (replacedText !== text) {
+                // Perform the subsitution
+                node.nodeValue = replacedText;
+                // Add modified node to list
+                textNodes.push(node);
             }
         }
     }
     return;
 }
 
-window.addEventListener('load', function load(event){
-    window.removeEventListener('load', load, false); //remove listener, no longer needed
+document.addEventListener('DOMContentLoaded', function load(event){
     GetConfigAndRun(ReplaceAll);
+    document.removeEventListener('DOMContentLoaded', load, false); //remove listener, no longer needed
 }, false);
 
 var timeout = null;
