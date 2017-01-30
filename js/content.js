@@ -88,5 +88,6 @@ document.addEventListener('DOMSubtreeModified', function() {
 chrome.storage.onChanged.addListener(function(changes, areaName){
     if(areaName === 'sync') {
         config = changes['config'].newValue;
+        GetConfigAndRun(ReplaceAll);
     }
 });
