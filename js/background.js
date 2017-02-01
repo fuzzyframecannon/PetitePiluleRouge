@@ -74,9 +74,9 @@ function getOwnerFromDomain(domain)
     return undefined;
 }
 
-function displayNotification(text ,time)
+function displayNotification(title, text ,time)
 {
-    chrome.notifications.create('Proprietaire', {type: 'basic', title: ' ', message: text, iconUrl:'images/red_pill.png', eventTime: time, isClickable: false}, function(id){
+    chrome.notifications.create('Proprietaire', {type: 'basic', title: title, message: text, iconUrl:'images/red_pill.png', eventTime: time, isClickable: false}, function(id){
         currentNotificationId = id;
         timer = setTimeout(function(){chrome.notifications.clear(id);}, 2000);
     });
@@ -98,7 +98,7 @@ function tabCallback(tabId, url, active)
                 // Set the tooltip
                 chrome.browserAction.setTitle({title: owner, tabId: tabId});
                 if(active) {
-                    displayNotification(owner, 2500);
+                    displayNotification(owner, getDomainFromUrl(url), 2500);
                 }
                 else {
                     // Setup a delayed notification
@@ -127,7 +127,7 @@ chrome.tabs.onReplaced.addListener(function(addedTabId, removedTabId){
 chrome.tabs.onActivated.addListener(function(activeInfo){
     // If we have a notification pending for this tab
     if(activeInfo.tabId in lastDomain && lastDomain[activeInfo.tabId][1]) {
-        displayNotification(getOwnerFromDomain(lastDomain[activeInfo.tabId][0]), 2500);
+        displayNotification(getOwnerFromDomain(lastDomain[activeInfo.tabId][0]), lastDomain[activeInfo.tabId][0], 2500);
         lastDomain[activeInfo.tabId][1] = false;
     }
     // Otherwise clear current notification as it is for another tab
