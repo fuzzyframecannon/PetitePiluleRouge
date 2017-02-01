@@ -33,14 +33,14 @@ function replaceText(text, config)
     for (var key in config) {
         if (config.hasOwnProperty(key)) {
             try {
-                regex = new RegExp('(^|'+nfc+')('+key+')'+'(?:$|'+nfc+')', 'g');
+                regex = new RegExp('(^|'+nfc+')('+config[key][0]+')'+'(?:$|'+nfc+')', 'g');
             }
             catch(err) {
                 // Skip bad regex
-                console.log('[Petite Pilule Rouge] Bad regex skipped: "' + key + '"');
+                console.log('[Petite Pilule Rouge] Bad regex skipped: "' + config[key][0] + '"');
                 continue;
             }
-            newText = newText.replace(regex, '$1$2 ['+config[key].join(', ')+']');
+            newText = newText.replace(regex, '$1$2 ['+config[key][1].join(', ')+']');
         }
     }
     return newText;
