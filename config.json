@@ -43,7 +43,7 @@
     "lepoint.fr": ["([Ll]e ?|[Dd]u |[Aa]u )Point(?:\\.fr)?", ["François Pinault"]],
     "tf1.fr": ["TF1", ["Famille Bouygues"]],
     "lci.fr": ["LCI", ["Famille Bouygues"]],
-    "slate.fr": ["Slate", ["Benjamin de Rothschild", "Financière Viveris"]],
+    "slate.fr": ["Slate(?:\\.fr)?", ["Benjamin de Rothschild", "Financière Viveris"]],
     "canalplus.fr": ["Canal(?: ?\\+| ?Plus)", ["Vincent Bolloré"]],
     "itele.fr": ["i[>-]?Télé", ["Vincent Bolloré"]],
     "directmatin.fr": ["Direct Matin", ["Vincent Bolloré"]],
