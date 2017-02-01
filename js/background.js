@@ -10,7 +10,7 @@ function storeConfig(c)
     // Store the json data, local or updated
     chrome.storage.sync.set({'config':c}, function() {
         if (chrome.runtime.lastError) {
-            alert('LMDCHROMIUM: Failed to store config')
+            alert('PPR: Failed to store config')
         }
     });
 }
@@ -76,7 +76,7 @@ function getOwnerFromDomain(domain)
 
 function displayNotification(text ,time)
 {
-    chrome.notifications.create('Proprietaire', {type: 'basic', title: 'Petite Pilule Rouge', message: text, iconUrl:'images/red_pill.png', eventTime: time, isClickable: false}, function(id){
+    chrome.notifications.create('Proprietaire', {type: 'basic', title: ' ', message: text, iconUrl:'images/red_pill.png', eventTime: time, isClickable: false}, function(id){
         currentNotificationId = id;
         timer = setTimeout(function(){chrome.notifications.clear(id);}, 2000);
     });
@@ -89,16 +89,21 @@ function tabCallback(tabId, url, active)
         // Get the domain
         var domain  = new URL(url).hostname.split('.').slice(-2).join('.');
         if(!(tabId in lastDomain) || lastDomain[tabId][0] !== domain) {
-            // Save URL as last URL and clear 'displayed' flag
-            lastDomain[tabId] = [domain, undefined];
+            // Save URL as last URL and clear 'need to display' flag
+            lastDomain[tabId] = [domain, false];
             // Get the owner
             owner = getOwnerFromDomain(getDomainFromUrl(url));
             // If the tab is currently active, display notification
-            if(active && owner) {
+            if(owner) {
                 // Set the tooltip
                 chrome.browserAction.setTitle({title: owner, tabId: tabId});
-                displayNotification(owner, 2500);
-                lastDomain[tabId][1] = true;
+                if(active) {
+                    displayNotification(owner, 2500);
+                }
+                else {
+                    // Setup a delayed notification
+                    lastDomain[tabId][1] = true;
+                }
             }
             else {
                 // Reset the tooltip
@@ -121,9 +126,9 @@ chrome.tabs.onReplaced.addListener(function(addedTabId, removedTabId){
 });
 chrome.tabs.onActivated.addListener(function(activeInfo){
     // If we have a notification pending for this tab
-    if(activeInfo.tabId in lastDomain && !lastDomain[activeInfo.tabId][1]) {
+    if(activeInfo.tabId in lastDomain && lastDomain[activeInfo.tabId][1]) {
         displayNotification(getOwnerFromDomain(lastDomain[activeInfo.tabId][0]), 2500);
-        lastDomain[activeInfo.tabId][1] = true;
+        lastDomain[activeInfo.tabId][1] = false;
     }
     // Otherwise clear current notification as it is for another tab
     else {
