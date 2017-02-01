@@ -46,7 +46,7 @@
     "LCI": ["Famille Bouygues"],
     "Slate": ["Benjamin de Rothschild", "Financière Viveris"],
     "Canal(?: ?\\+| ?Plus)": ["Vincent Bolloré"],
-    "iTélé": ["Vincent Bolloré"],
+    "i[>-]?Télé": ["Vincent Bolloré"],
     "Direct Matin": ["Vincent Bolloré"],
     "C8": ["Vincent Bolloré"],
     "([Ll]e ?|[Dd]u |[Aa]u )Figaro(?:\\.fr)?": ["Famille Dassault"],
@@ -56,11 +56,14 @@
     "Eurosport(?:\\.fr)?" : ["Famille Bouygues"],
     "Pure People": ["Marc Ladreit de Lacharrière"],
     "Boursorama(?:\\.com)?": ["Société Générale"],
-    "(RFI|Radio France Internationale)": ["République française"],
+    "(?:RFI|Radio France Internationale)": ["République française"],
     "France ?[Ii]nter": ["République française"],
     "[Ff]rance(?:tv)?(?:info| Info)(?:\\.fr)?": ["République française"],
     "France Bleu": ["République française"],
     "France ?24": ["République française"],
     "France Culture": ["République française"],
-    "Public Sénat": ["République française"]
+    "Public Sénat": ["République française"],
+    "(?:RT en français|Russia Today)": ["Fédération de Russie"],
+    "(?:Sputnik France|sputniknews\\.com)": ["Fédération de Russie"],
+    "Washington Post": ["Jeff Bezos"]
 }
